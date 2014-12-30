@@ -54,3 +54,5 @@ end
 
 gem 'slim-rails'
 gem 'flickraw'
+gem 'twitter'
+gem 'pry'
