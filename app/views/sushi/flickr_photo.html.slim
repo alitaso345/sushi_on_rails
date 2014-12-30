@@ -1,4 +1,3 @@
-h1
-  | Sushi#flickr
-p
-  | Find me in app/views/sushi/flickr.html.erb
+
+- @sushi_urls.each do |url|
+  =image_tag(url)
