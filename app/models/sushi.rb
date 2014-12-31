@@ -5,7 +5,7 @@ class Sushi < ActiveRecord::Base
 
   class << self
     def search
-      results = get_sushi_from_twitter() + get_sushi_from_tumblr()
+      results = get_sushi_from_twitter() + get_sushi_from_tumblr() + get_sushi_from_flickr()
       results
     end
 
@@ -36,6 +36,15 @@ class Sushi < ActiveRecord::Base
       end
 
       sushi_photos
+    end
+
+    def get_sushi_from_flickr()
+      photos = flickr.photos.search(text: '寿司')
+      sushi_data = []
+      photos.each do |photo|
+        sushi_data.push({:url => "http://farm#{photo.farm}.static.flickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_n.jpg", :provider => "flickr"})
+      end
+      sushi_data
     end
   end
 end
