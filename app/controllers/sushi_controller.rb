@@ -1,4 +1,5 @@
 require 'twitter_client'
+
 class SushiController < ApplicationController
   def index
     search_result = Sushi.search()
@@ -24,7 +25,7 @@ class SushiController < ApplicationController
   end
 
   def tumblr_photo
-    @sushi_urls_from_tumblr = get_sushi_from_tumblr()
+    @sushi_from_tumblr = Sushi.get_sushi_from_tumblr()
   end
 
   private
@@ -40,21 +41,6 @@ class SushiController < ApplicationController
       end
     end
     photos
-  end
-
-  def get_sushi_from_tumblr
-    sushi_photos = []
-    client = Tumblr::Client.new
-    posts = client.tagged("寿司",{})
-    posts.each do |post|
-      if(post["type"] == "photo")
-        post["photos"].each do |potho|
-          sushi_photos.push(potho["alt_sizes"][2]["url"])
-        end
-      end
-    end
-
-    sushi_photos
   end
 end
 
