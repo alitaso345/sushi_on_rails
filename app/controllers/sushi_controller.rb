@@ -1,5 +1,3 @@
-require 'twitter_client'
-
 class SushiController < ApplicationController
   def index
     search_result = Sushi.search()
@@ -21,26 +19,11 @@ class SushiController < ApplicationController
   end
 
   def twitter_photo
-    @sushi_urls_twitter = get_sushi_from_twitter
+    @sushi_from_twitter = Sushi.get_sushi_from_twitter
   end
 
   def tumblr_photo
     @sushi_from_tumblr = Sushi.get_sushi_from_tumblr()
-  end
-
-  private
-  def get_sushi_from_twitter 
-    photos = Array.new
-    sushi_tweets = TwitterClient.client.search("#寿司").to_h[:statuses]
-    sushi_tweets.each do |tweet|
-      images = tweet[:entities][:media]
-      if images.class == Array
-        images.each do |image|
-          photos.push(image[:media_url])
-        end
-      end
-    end
-    photos
   end
 end
 
