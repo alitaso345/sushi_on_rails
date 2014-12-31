@@ -13,6 +13,10 @@ class SushiController < ApplicationController
     @sushi_urls_twitter = get_sushi_from_twitter
   end
 
+  def tumblr_photo
+    @sushi_urls_from_tumblr = get_sushi_from_tumblr()
+  end
+
   private
   def get_sushi_from_twitter 
     photos = Array.new
@@ -28,11 +32,6 @@ class SushiController < ApplicationController
     photos
   end
 
-  def tumblr_photo
-    @sushi_urls_from_tumblr = get_sushi_from_tumblr()
-  end
-
-  private
   def get_sushi_from_tumblr
     sushi_photos = []
     client = Tumblr::Client.new
