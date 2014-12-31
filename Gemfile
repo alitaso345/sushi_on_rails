@@ -54,3 +54,4 @@ end
 
 gem 'slim-rails'
 gem 'flickraw'
+gem 'tumblr_client'
