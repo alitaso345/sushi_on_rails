@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'sushi/index'
   get 'sushi/flickr_photo'
 
   # The priority is based upon order of creation: first created -> highest priority.
