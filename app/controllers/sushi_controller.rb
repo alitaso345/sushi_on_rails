@@ -7,7 +7,7 @@ class SushiController < ApplicationController
       sushi.provider = sushi_data[:provider]
       sushi.save
     end
-    @all_sushi = Sushi.all
+    @all_sushi = Sushi.order(:created_at).reverse_order
   end
   
   def flickr_photo
