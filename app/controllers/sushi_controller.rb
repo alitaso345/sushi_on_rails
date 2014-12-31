@@ -2,7 +2,14 @@ require 'twitter_client'
 
 class SushiController < ApplicationController
   def index
-    @all_sushi_urls = Sushi.all
+    search_result = Sushi.search()
+    search_result.each do |sushi_data|
+      sushi = Sushi.new
+      sushi.url = sushi_data.url
+      sushi.provider = sushi_data.provider
+      sushi.save
+    end
+    @all_sushi = Sushi.all
   end
   
   def flickr_photo
