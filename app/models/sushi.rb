@@ -1,4 +1,6 @@
 class Sushi < ActiveRecord::Base
+  validates :url, uniqueness: true
+
   class << self
     def search
       results = get_sushi_from_tumblr()
