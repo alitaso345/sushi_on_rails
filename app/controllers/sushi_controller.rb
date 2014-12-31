@@ -2,7 +2,7 @@ require 'twitter_client'
 
 class SushiController < ApplicationController
   def index
-
+    @all_sushi_urls = Sushi.all
   end
   
   def flickr_photo
