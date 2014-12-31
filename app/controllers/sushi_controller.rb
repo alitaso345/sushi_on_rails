@@ -7,4 +7,8 @@ class SushiController < ApplicationController
     end
 
   end
+
+  def tumblr_photo
+    @sushi_urls_from_tumblr = get_sushi_from_tumblr()
+  end
 end
