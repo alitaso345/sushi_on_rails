@@ -56,3 +56,5 @@ gem 'slim-rails'
 gem 'flickraw'
 gem 'twitter'
 gem 'pry'
+gem 'tumblr_client'
+
