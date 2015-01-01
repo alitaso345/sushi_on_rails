@@ -20,4 +20,6 @@ html
           li
             = link_to image_tag("tumblr.png") , "/sushi/tumblr_photo"
       input type="button" id="rotate_all" value="spin sushi!!!!"
+
     = yield
+    = paginate @sushis, :remote => true
