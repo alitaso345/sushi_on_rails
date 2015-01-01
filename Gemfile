@@ -57,5 +57,5 @@ gem 'flickraw'
 gem 'twitter'
 gem 'pry'
 gem 'tumblr_client'
-gem 'activerecord-reputation-system'
-
+#gem 'activerecord-reputation-system'
+gem 'activerecord-reputation-system', github: 'NARKOZ/activerecord-reputation-system', branch: 'rails4'
