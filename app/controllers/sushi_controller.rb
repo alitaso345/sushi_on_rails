@@ -5,15 +5,15 @@ class SushiController < ApplicationController
   end
   
   def flickr_photo
-    @sushi_from_flickr = Sushi.get_sushi_from_flickr()
+    @sushi_from_flickr = Sushi.where(provider: "flickr")
   end
 
   def twitter_photo
-    @sushi_from_twitter = Sushi.get_sushi_from_twitter()
+    @sushi_from_twitter = Sushi.where(provider: "twitter")
   end
 
   def tumblr_photo
-    @sushi_from_tumblr = Sushi.get_sushi_from_tumblr()
+    @sushi_from_tumblr = Sushi.where(provider: "tumblr")
   end
 
   private
