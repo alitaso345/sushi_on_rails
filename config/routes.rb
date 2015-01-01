@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'sushi#index'
   get 'sushi/flickr_photo'
 
   get 'sushi/twitter_photo'

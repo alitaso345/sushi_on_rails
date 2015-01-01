@@ -1,2 +1,3 @@
-- @sushi_urls_twitter.each do |url|
-  =image_tag(url,:class=>"sushi_img")
+div#sushis
+  - @sushi_from_twitter.each do |sushi|
+    =image_tag(sushi[:url],:class=>"sushi_img") 
