@@ -6,7 +6,12 @@ class Sushi < ActiveRecord::Base
   class << self
     def search
       results = get_sushi_from_twitter() + get_sushi_from_tumblr() + get_sushi_from_flickr()
-      results
+      results.each do |sushi_data|
+        sushi = self.new
+        sushi.url = sushi_data[:url]
+        sushi.provider = sushi_data[:provider]
+        sushi.save
+      end
     end
 
     def get_sushi_from_twitter()

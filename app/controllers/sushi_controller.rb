@@ -1,15 +1,9 @@
 class SushiController < ApplicationController
+  before_action :itamae
+
   def index
-    search_result = Sushi.search()
-    search_result.each do |sushi_data|
-      sushi = Sushi.new
-      sushi.url = sushi_data[:url]
-      sushi.provider = sushi_data[:provider]
-      sushi.save
-    end
-    @all_sushi = Sushi.order(:created_at).reverse_order
   end
-  
+
   def flickr_photo
     @sushi_from_flickr = Sushi.where(provider: "flickr")
   end
@@ -20,6 +14,12 @@ class SushiController < ApplicationController
 
   def tumblr_photo
     @sushi_from_tumblr = Sushi.where(provider: "tumblr")
+  end
+
+  private
+  def itamae
+    Sushi.search
+    @sushis = Sushi.order('created_at DESC').page(params[:page])
   end
 end
 

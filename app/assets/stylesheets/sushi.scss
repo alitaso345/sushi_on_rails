@@ -15,6 +15,16 @@ $background-color: #333333;
 body {
   background-color: $background-color;
   border-top: 10px solid $theme-color;
+
+  .sushi_img {
+    height: 300px;
+    position: relative;
+  }
+
+  .sushi_img img {
+    position: absolute;
+    clip: rect(10px 300px 300px 2px);
+  }
 }
 
 header {
@@ -42,3 +52,5 @@ header {
     text-align: center;
   }
 }
+
+
